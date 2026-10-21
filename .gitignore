@@ -13,3 +13,6 @@ preferences.md
 *.jpg
 *.jpeg
 *.png
+
+# Project-scoped private runtime; never distribute or commit it.
+.daily-vlog-runtime/
