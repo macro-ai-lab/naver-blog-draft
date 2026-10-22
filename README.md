@@ -34,4 +34,6 @@ Codex에서 스킬 목록이 갱신된 뒤 다음처럼 요청합니다.
 
 ## Claude에서 사용하기
 
+[환경별 실제 점검 결과](COMPATIBILITY.md)를 먼저 확인하세요. **현재 자동 설치 요청은 Codex용입니다.**
+
 지침은 Agent Skills 형식이므로 재사용할 수 있지만 현재 자동 설치기는 Codex용입니다. Claude Code에서 쓰려면 `.claude/skills` 설치 위치와 개인 지침 경로를 맞추고 실제 브라우저·파일 첨부 도구를 확인해야 합니다. 일반 채팅의 스킬 업로드만으로 로컬 브라우저 조작 권한이 생기지는 않습니다. Claude 환경의 실제 네이버 작성·임시저장은 검증 전입니다. [Claude Code 공식 스킬 문서](https://code.claude.com/docs/en/skills)를 참고하세요.
