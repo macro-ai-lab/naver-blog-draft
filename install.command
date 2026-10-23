@@ -2,6 +2,7 @@
 set -euo pipefail
 BUNDLE="$(cd "$(dirname "$0")" && pwd -P)"
 NAME="naver-blog-draft"
+HAS_RUNTIME=false
 SOURCE="$BUNDLE/$NAME"
 PROJECT=""
 CLIENT="auto"
@@ -75,12 +76,16 @@ fi
 export AI_SKILL_CLIENT="$CLIENT"
 echo "스킬 파일 확인 완료: $TARGET"
 echo "설치 클라이언트: $CLIENT / 범위: $SCOPE"
-if [[ "$NAME" == daily-vlog ]]; then
-  if [[ -n "$PROJECT" ]]; then export DAILY_VLOG_RUNTIME="${DAILY_VLOG_RUNTIME:-$PROJECT/.daily-vlog-runtime/v1}"; fi
+if [[ "$HAS_RUNTIME" == true ]]; then
+  if [[ -n "$PROJECT" ]]; then
+    export SKILL_RUNTIME="${SKILL_RUNTIME:-$PROJECT/.skill-runtime/v1}"
+  else
+    export SKILL_RUNTIME="${SKILL_RUNTIME:-$HOME/Library/Caches/naver-blog-draft/v1}"
+  fi
   if ! bash "$TARGET/scripts/run.sh" doctor; then
     echo '[RUNTIME_CHECK_FAILED] 스킬 파일은 복사됐지만 편집 도구 준비·점검이 실패했습니다. 위 오류를 확인하세요.' >&2; exit 1
   fi
-  CHECK_ROOT="${DAILY_VLOG_RUNTIME:-$HOME/Library/Caches/daily-vlog/v1}/checks"
+  CHECK_ROOT="${SKILL_RUNTIME:-$HOME/Library/Caches/naver-blog-draft/v1}/checks"
   if ! bash "$TARGET/scripts/run.sh" smoke --output-dir "$CHECK_ROOT/check-$(/usr/bin/uuidgen)"; then
     echo '[VIDEO_CHECK_FAILED] 테스트 영상 생성·읽기 점검이 실패했습니다. 오류 보고를 확인하세요.' >&2; exit 1
   fi

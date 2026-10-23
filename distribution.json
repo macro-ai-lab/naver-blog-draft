@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "policy_version": "2026-10-23.1",
+  "name": "naver-blog-draft",
+  "repository": "https://github.com/macro-ai-lab/naver-blog-draft",
+  "version": "v0.1.5",
+  "archive": "naver-blog-draft-install.zip",
+  "clients": [
+    "codex",
+    "claude-code"
+  ],
+  "platforms": [
+    "macos",
+    "windows-x64"
+  ],
+  "profile": "naver-blog-draft/preferences.md",
+  "runtime": null,
+  "include": [
+    "naver-blog-draft",
+    "README.md",
+    "INSTALLATION.md",
+    "COMPATIBILITY.md",
+    "INSTALLATION-VALIDATION.md",
+    "시작하기.txt",
+    "install.command",
+    "install-windows.ps1",
+    "install-windows.cmd",
+    "distribution.json",
+    "AGENTS.md",
+    "_maintenance",
+    ".github",
+    ".gitattributes",
+    ".gitignore",
+    "VALIDATION.md"
+  ]
+}
